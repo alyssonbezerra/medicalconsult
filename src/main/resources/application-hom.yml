@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgresql
+    url: jdbc:postgresql://
+    password: senha
+  jpa:
+    properties:
+      hibernaties:
+        format sql: "true"
+      hibernate:
+        ddl-auto: update
+      show-sql: "true"
+  server:
+    port: ${port:8080}
