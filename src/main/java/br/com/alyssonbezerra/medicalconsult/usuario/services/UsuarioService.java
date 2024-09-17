@@ -1,7 +1,7 @@
 package br.com.alyssonbezerra.medicalconsult.usuario.services;
 
 import br.com.alyssonbezerra.medicalconsult.usuario.domain.Usuario;
-import br.com.alyssonbezerra.medicalconsult.usuario.repositories.UsuarioRepository;
+import br.com.alyssonbezerra.medicalconsult.usuario.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -34,11 +34,20 @@ public class UsuarioService {
         usuarioRepository.delete(usuario);
     }
 
-    public Usuario atualizarUsuario(Long id, Usuario usuario) {
-        Usuario upUsuarioExistente = buscarUsuario(id);
+    public Usuario atualizarUsuario(Long id, Usuario usuarioAtualizado) {
+
+        Usuario usuarioExistente = buscarUsuario(id);
+
+
+        usuarioExistente.setNomeUsuario(usuarioAtualizado.getNomeUsuario());
+        usuarioExistente.setEmail(usuarioAtualizado.getEmail());
+        usuarioExistente.setTelefone(usuarioAtualizado.getTelefone());
+        usuarioExistente.setCpf(usuarioAtualizado.getCpf());
+        usuarioExistente.setDataNascimento(usuarioAtualizado.getDataNascimento());
 
 
 
-        return usuarioRepository.save(upUsuarioExistente);
+
+        return usuarioRepository.save(usuarioExistente);
     }
 }

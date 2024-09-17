@@ -1,4 +1,4 @@
-package br.com.alyssonbezerra.medicalconsult.usuario.repositories;
+package br.com.alyssonbezerra.medicalconsult.usuario.repository;
 
 import br.com.alyssonbezerra.medicalconsult.usuario.domain.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
