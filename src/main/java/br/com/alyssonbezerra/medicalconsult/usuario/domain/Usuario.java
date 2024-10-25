@@ -1,6 +1,7 @@
 package br.com.alyssonbezerra.medicalconsult.usuario.domain;
 
 import br.com.alyssonbezerra.medicalconsult.consulta.domain.Consulta;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -28,19 +29,19 @@ public class Usuario {
     @Column(name = "DATA_NASCIMENTO")
     private Date dataNascimento;
     @Column(name = "PERMISAO")
-    private Permission permission;
-
+    private Permissao permissao;
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Consulta> consulta;
 
-    public Usuario(long idUsuario, String nomeUsuario, String email, String cpf, String telefone, Date dataNascimento, Permission permission){
+    public Usuario(long idUsuario, String nomeUsuario, String email, String cpf, String telefone, Date dataNascimento, Permissao permissao){
        this.idUsuario = idUsuario;
        this.nomeUsuario = nomeUsuario;
        this.email = email;
        this.cpf = cpf;
        this.telefone = telefone;
        this.dataNascimento = dataNascimento;
-       this.permission = permission;
+       this.permissao = permissao;
     }
     public Usuario(){
 
